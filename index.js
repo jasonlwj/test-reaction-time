@@ -13,10 +13,9 @@ const randomNumber = (min, max, int = false) => {
 		: Math.random() * (max - min) + min
 }
 
-const turnGreen = () => {
-	clickarea.classList.remove('red')
-	clickarea.classList.add('green')
-	message.textContent = 'Click!'
+const updateText = (messageText, noteText) => {
+	message.textContent = messageText
+	note.textContent = noteText
 }
 
 const handleClick = event => {
@@ -29,23 +28,25 @@ const handleClick = event => {
 		finishTime = new Date(startTime.getTime() + (msUntilGreen * 1000))
 
 		clickarea.classList.add('red')
-		message.textContent = 'Wait for green...'
-		note.textContent = ''
+		updateText('Wait for green...', '')
 		testStarted = true
 
-		timer = setTimeout(turnGreen, msUntilGreen * 1000)
+		timer = setTimeout(() => {
+			clickarea.classList.remove('red')
+			clickarea.classList.add('green')
+			message.textContent = 'Click!'
+		}, msUntilGreen * 1000)
 	} else {
 		testStarted = false
 
 		if (new Date() < finishTime) {
 			clearTimeout(timer)
 			clickarea.classList.remove('red')
-			message.textContent = 'Too soon!'
-			note.textContent = 'Click to try again'
+			updateText('Too soon!', 'Click to try again')
+			
 		} else {
 			clickarea.classList.remove('green')
-			message.textContent = `${new Date() - finishTime}ms`
-			note.textContent = 'Click to keep going'
+			updateText(`${new Date() - finishTime}ms`, 'Click to keep going')
 		}
 	}
 }
