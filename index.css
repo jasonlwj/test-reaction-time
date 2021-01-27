@@ -1,7 +1,7 @@
 body {
 	height: 100%;
 	margin: 0;
-	font-family: 'Montserrat', 'sans-serif';
+	font-family: 'helvetica', 'sans-serif';
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -15,9 +15,10 @@ body {
 
 .clickarea {
 	display: flex;
+	flex-direction: column;
+	/* flex-grow: 1; */
 	align-items: center;
 	justify-content: center;
-	flex-grow: 1;
 	height: 100vh;
 	width: 100vw;
 	color: white;
@@ -34,9 +35,17 @@ body {
 }
 
 .message {
+	margin: 1vh;
+	text-align: center;
 	-webkit-user-select: none;        
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 	font-size: 8vh;
+}
+
+.note {
+	margin: 0;
+	text-align: center;
+	font-size: 2.8vh;
 }

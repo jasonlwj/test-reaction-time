@@ -5,6 +5,7 @@ let timer = null
 
 const clickarea = document.querySelector('.clickarea')
 const message = document.querySelector('.message')
+const note = document.querySelector('.note')
 
 const randomNumber = (min, max, int = false) => {
 	return (int)
@@ -26,6 +27,7 @@ const handleClick = () => {
 
 		clickarea.classList.add('red')
 		message.textContent = 'Wait for green...'
+		note.textContent = ''
 		testStarted = true
 
 		timer = setTimeout(turnGreen, msUntilGreen * 1000)
@@ -39,6 +41,7 @@ const handleClick = () => {
 		} else {
 			clickarea.classList.remove('green')
 			message.textContent = `${new Date() - finishTime}ms`
+			note.textContent = 'Click to keep going'
 		}
 	}
 }
