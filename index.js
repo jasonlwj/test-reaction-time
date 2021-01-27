@@ -48,4 +48,4 @@ const handleClick = () => {
 }
 
 clickarea.addEventListener('mousedown', handleClick)
-clickarea.addEventListener('touchstart', handleClick)
+clickarea.addEventListener('touchend', handleClick)
