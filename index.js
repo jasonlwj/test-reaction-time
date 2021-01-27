@@ -19,7 +19,9 @@ const turnGreen = () => {
 	message.textContent = 'Click!'
 }
 
-const handleClick = () => {
+const handleClick = event => {
+	event.stopPropagation()
+	
 	if (!testStarted) {
 		const msUntilGreen = randomNumber(2, 4)
 		startTime = new Date()
@@ -48,4 +50,4 @@ const handleClick = () => {
 }
 
 clickarea.addEventListener('mousedown', handleClick)
-clickarea.addEventListener('touchend', handleClick)
+clickarea.addEventListener('touchstart', handleClick)
