@@ -38,6 +38,7 @@ const handleClick = () => {
 			clearTimeout(timer)
 			clickarea.classList.remove('red')
 			message.textContent = 'Too soon!'
+			note.textContent = 'Click to try again'
 		} else {
 			clickarea.classList.remove('green')
 			message.textContent = `${new Date() - finishTime}ms`
@@ -47,3 +48,4 @@ const handleClick = () => {
 }
 
 clickarea.addEventListener('mousedown', handleClick)
+clickarea.addEventListener('touchstart', handleClick)
