@@ -20,6 +20,7 @@ const turnGreen = () => {
 }
 
 const handleClick = event => {
+	event.preventDefault()
 	event.stopPropagation()
 	
 	if (!testStarted) {
